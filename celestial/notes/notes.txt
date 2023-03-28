@@ -1,3 +1,5 @@
+
+
 Step-01: Become root
 $ sudo su - root
 
@@ -15,3 +17,5 @@ Run below command with your system default user created at build time
 $ bash celestial/celestial/ansible-ubuntu-setup.sh -u devopsadmin -o celestial
 
 Step-02: Take final reboot
+
+
