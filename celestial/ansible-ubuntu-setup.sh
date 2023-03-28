@@ -46,6 +46,7 @@ pkg_install () {
 # Setup User account
 user_account_setup () {
 echo "Function $orgusername user_account_setup begins......."
+    mkdir /home/$orgusername/.bashrc
     sed 's/^HISTSIZE=1000/HISTSIZE=100000/' -i /home/$orgusername/.bashrc
     echo 'export HISTTIMEFORMAT="%d/%m/%y %T "' >> /home/$orgusername/.bashrc
     sed 's/^HISTSIZE=1000/HISTSIZE=100000/' -i /root/.bashrc
@@ -164,4 +165,4 @@ echo -e "Job Finish Time : $end_time \n"
 echo -e "Taking final reboot"
 apt upgrade
 sleep 5
-reboot
+#reboot
