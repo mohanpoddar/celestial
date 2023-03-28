@@ -171,4 +171,6 @@ echo -e "Taking final reboot"
 apt update
 apt upgrade -y
 sleep 5
+cd /root
+rm -fr /root/celestial
 #reboot
