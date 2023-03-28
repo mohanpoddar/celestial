@@ -22,6 +22,14 @@ list_of_packages:
   - xfce4-terminal
   - sysstat
   - plocate
+  - python3-pip
 
 list_of_pip_packages:
   - jmespath
+
+# visual_studio_code_gpgcheck: yes
+# visual_studio_code_mirror: 'https://packages.microsoft.com'
+# visual_studio_code_version: ''
+# visual_studio_code_package: "{{ (visual_studio_code_build == 'insiders') | ternary('code-insiders', 'code') }}"
+# visual_studio_code_deb_architecture: >-
+#   {{ visual_studio_code_deb_architecture_mapping[ansible_architecture | lower] | default('amd64') }}

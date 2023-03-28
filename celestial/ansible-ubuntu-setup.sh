@@ -28,6 +28,9 @@ do
     esac
 done
 
+apt upgrade -y
+apt-get update
+
 # Install basic initial packages
 pkg_install () {
     echo "Function pkg_install begins......."
@@ -80,6 +83,7 @@ install_ssh () {
 # Python Setup
 config_python_alternative () {
     echo "Function config_python_alternative begins......."
+    
     python_default_ver=$(/usr/bin/python --version | awk '{print $2}' | cut -d. -f1)
     python3_ver=$(/usr/bin/python3 --version | awk '{print $2}' | cut -d. -f1-2)
     echo "Print Available python default version: $python_default_ver"
@@ -98,6 +102,7 @@ config_python_alternative () {
        echo "\n\nDisplaying Python version: $(python --version)\n"
        update-alternatives --query python
     fi
+    apt install python3-pip -y
     echo -e "\nFunction config_python_alternative ends......."
     echo -e "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 }
@@ -163,6 +168,7 @@ end_time=$(date "+%d.%m.%Y-%H.%M.%S")
 echo -e "Job Finish Time : $end_time \n"
 
 echo -e "Taking final reboot"
-apt upgrade
+apt update
+apt upgrade -y
 sleep 5
 #reboot

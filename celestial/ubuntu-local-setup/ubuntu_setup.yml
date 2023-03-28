@@ -10,5 +10,6 @@
 
 # # Add playbook roles
   roles:
-  - role: home_ubuntu_setup
-  - onedrive_install
+  # - role: home_ubuntu_setup
+  # - onedrive_install
+  - visual-studio-code
