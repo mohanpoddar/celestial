@@ -1,0 +1,28 @@
+---
+# file: meta/main.yaml
+
+dependencies: []
+
+galaxy_info:
+  role_name: samba
+  author: pmikus
+  description: Samba for Linux.
+  company: none
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.9
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - groovy
+        - hirsute
+        - impish
+        - jammy
+  galaxy_tags:
+    - system
+    - samba
+    - windows
+    - filesystem
+    - fileshare
+    - sharing
+    - files

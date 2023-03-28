@@ -1,0 +1,4 @@
+First download and extract
+
+Step-01: Go to the directory and run below command
+$ bash ansible-ubuntu-setup.sh -u user13 -o cce

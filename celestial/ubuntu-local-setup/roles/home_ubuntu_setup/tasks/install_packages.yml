@@ -1,0 +1,58 @@
+---
+- debug:
+    var: list_of_applications
+
+- name: Install application from local .deb packages
+  apt:
+    deb: 'software/{{ item }}'
+  with_items:
+    - '{{ list_of_applications }}'
+  register: list_applications
+  ignore_errors: true
+
+- debug:
+    var: '{{ item }}'
+  with_items:
+    - list_applications.results|map(attribute='item')|list|map(attribute='msg')|list
+
+# Tasks - Install Other packages
+- name: Install various packages from list
+  apt:
+    pkg:
+      - '{{ item }}'
+  with_items: 
+    - '{{ list_of_packages }}'
+  register: install_pkg
+  ignore_errors: true
+
+- debug:
+    var: install_pkg.changed
+
+- name: Update and upgrade apt packages
+  apt:
+    update_cache: yes
+  ignore_errors: yes
+
+
+- name: Install various pip packages from list
+  command: pip install '{{ item }}'
+  with_items: 
+    - jmespath
+  register: list_of_pip_packages
+
+- debug:
+    var: list_of_pip_packages.changed
+
+- name: Update
+  shell: apt update
+
+- name: "Fix Anydesk Configuration"
+  lineinfile:
+    path: /etc/gdm3/custom.conf
+    # The String to Search
+    regexp: "#WaylandEnable=false" 
+    # The String to Replace
+    line: "WaylandEnable=false"
+    state: present
+    backup: yes
+  diff: true
