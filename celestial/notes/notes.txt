@@ -8,7 +8,7 @@ Step-03: Clone the code and change to the directory
 # git clone git@github.com:mohanpoddar/celestial.git
 # cd celestial/celestial
 
-Step-04: Run below command
+Step-04: Run below command from root.
 o - For original user while creating the os
 u - creating new user ex. devopsadmin
 
