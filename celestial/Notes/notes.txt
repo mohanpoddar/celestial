@@ -1,4 +1,7 @@
 First download and extract
 
 Step-01: Go to the directory and run below command
-$ bash ansible-ubuntu-setup.sh -u user13 -o cce
+o - For original user while creating the os
+u - creating new user ex. devopsadmin
+
+$ bash ansible-ubuntu-setup.sh -u devopsadmin -o cce
