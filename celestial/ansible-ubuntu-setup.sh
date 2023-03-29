@@ -18,7 +18,7 @@ ansible_inv_file=/etc/ansible/hosts
 PLAYBOOK=celestial/celestial/ubuntu-local-setup/ubuntu_setup.yml
 ANSIBLE_CMD=/usr/local/bin/ansible-playbook
 
-while getopts h:u: option
+while getopts h:o:u: option
 do 
     case "${option}"
         in
@@ -49,7 +49,7 @@ pkg_install () {
 # Setup User account
 user_account_setup () {
 echo "Function $orgusername user_account_setup begins......."
-    mkdir /home/$orgusername/.bashrc
+    touch /home/$orgusername/.bashrc
     sed 's/^HISTSIZE=1000/HISTSIZE=100000/' -i /home/$orgusername/.bashrc
     echo 'export HISTTIMEFORMAT="%d/%m/%y %T "' >> /home/$orgusername/.bashrc
     sed 's/^HISTSIZE=1000/HISTSIZE=100000/' -i /root/.bashrc
