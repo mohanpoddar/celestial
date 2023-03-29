@@ -48,10 +48,13 @@ pkg_install () {
 
 # Setup User account
 user_account_setup () {
-echo "Function $orgusername user_account_setup begins......."
+echo "Function user_account_setup begins......."
     touch /home/$orgusername/.bashrc
     sed 's/^HISTSIZE=1000/HISTSIZE=100000/' -i /home/$orgusername/.bashrc
     echo 'export HISTTIMEFORMAT="%d/%m/%y %T "' >> /home/$orgusername/.bashrc
+    touch /home/$username/.bashrc
+    sed 's/^HISTSIZE=1000/HISTSIZE=100000/' -i /home/$username/.bashrc
+    echo 'export HISTTIMEFORMAT="%d/%m/%y %T "' >> /home/$username/.bashrc
     sed 's/^HISTSIZE=1000/HISTSIZE=100000/' -i /root/.bashrc
     echo 'export HISTTIMEFORMAT="%d/%m/%y %T "' >> /root/.bashrc
     echo -e "\nFunction user_account_setup ends......."
